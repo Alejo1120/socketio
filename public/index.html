@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Socket.io</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+   
+
+</head>
+
+<body>
+
+    <div class="col-md-5 offset-md-5">
+        <h1 style="color:black">Soxket</h1>
+    </div>
+
+    <br>
+    <br>
+
+   
+
+    <div class="container">
+
+        <div id="chat-window">
+            <div id="output"></div>
+            <div id="actions"></div>
+        </div>
+
+        <div class="row">
+            <!-- formulario -->
+            <div class="col-md-5 offset-md-3">
+                <div class="card">
+                    <div class="card-body">
+
+                        <div class="form-group">
+                            <input type="text" id="user" placeholder="usuario" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <textarea id="mensaje" cols="80" class="form-control" placeholder="mensaje"></textarea>
+                        </div>
+                        <button id="btn">send</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
+
+
+
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="chat.js"></script>
+
+</body>
+
+</html>
