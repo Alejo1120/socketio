@@ -23,13 +23,12 @@ io.on('connection', (socket)=>{        //cuando se conecte alguien (connection e
     console.log('conexion nueva', socket.id);
 
     socket.on('chat', (data)=>{           //con esta funcion enviamos el mensje
-        io.sockets.emit('chat', data)
-            
+        io.sockets.emit('chat', data)  
         });
 
+        socket.on('chat:escribiendo', (data)=>{
+            console.log(data);
+        
+        })
+
 });
-
-
-
-
-

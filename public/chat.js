@@ -1,4 +1,4 @@
- // con io() se escucha al cliente conectar url de la pg en este caso la de heroku 
+// con io() se escucha al cliente conectar url de la pg en este caso la de heroku 
 const socket = io() ;
 
 //datos del form
@@ -15,15 +15,24 @@ btn.addEventListener('click', function (){           //almacenamos los mensajes 
         mensaje:mensaje.value      
     });
 
-    console.log({
-        user: user.value,
-        mensaje:mensaje.value
-    });
+    //  console.log({                //se muestra por la consola
+    //     user: user.value,
+    //      mensaje:mensaje.value
+    // });
 });
 
-socket.on('chat', function (data){
-    console.log(data);
-    // output.innerHTML= -`<p>
-    // <strong>${data.user} </strong> 
-    // </p>`
+mensaje.addEventListener('Keypress',function (){      //para que aparezca que el usuario esta escribiendo 
+    socket.emit('chat:escribiendo', user.value );
+});
+
+socket.on('chat', function (data){           //aparezcan los mensajes en la parte del front-end
+    //console.log(data);
+     actions.innerHTML = '';
+     output.innerHTML += `<p>
+     <strong>${data.user} </strong>:  ${data.mensaje}
+     </p>`
 }); //recibe
+
+socket.on('chat:escribiendo', function (data){       //aparezca el escribiendo 
+    actions.innerHTML = `<p><em>${data} esta escribiendo...</em></p>`
+});
